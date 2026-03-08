@@ -14,10 +14,10 @@ int partition (int arr[],int p,int r)
     int x=arr[r];
     for(int j=p;j<r;j++)
     {
-        if(arr[r]<x)
+        if(arr[j]<x)
         {
         i++; 
-        int temp=arr[j];
+        int temp=arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
         }
@@ -48,16 +48,16 @@ void merge(int arr[],int low,int mid,int high)
     int arr2[n2];
     for(int i=0;i<n1;i++)
     {
-        arr[i]=arr[low+i];
+        arr1[i]=arr[low+i];
     }
     for( int j=0;j<n2;j++)
     {
-        arr[j]=arr[j+mid+1];
+        arr2[j]=arr[j+mid+1];
     }
     int i=0;
     int j=0;
-    int k=0;
-    while(  i<n1 && j<n2)
+    int k=low;
+    while( i<n1 && j<n2)
     {
      if(arr1[i]<arr2[j])
      {
@@ -101,8 +101,8 @@ int main()
     int arr[]={70,60,50,40,30,20,10};
     int n=sizeof(arr)/sizeof(arr[0]);
     display(arr,n);
-    //quick_sort(arr,0,n-1);  
-    //display(arr,n);
+    quick_sort(arr,0,n-1);  
+    display(arr,n);
  
     merge(arr ,0 ,n-1/2,n-1);
     merge_sort(arr,0,n-1);
